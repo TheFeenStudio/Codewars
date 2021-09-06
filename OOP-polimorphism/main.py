@@ -12,11 +12,25 @@ class NewSFTP(SFTPClient):
     def remove(self, path):
         super().remove(self, PurePath)
 
+host = "134.0.115.28"
+port = 22
+transport = paramiko.Transport((host,port))
 
-client = paramiko.SSHClient()
-client.set_missing_host_key_policy(paramiko.AutoAddPolicy)
-client.connect(hostname='134.0.115.28', username='root', password='ap4Ainee4uma', allow_agent=False, look_for_keys=False)
+username = "root"
+password = "ap4Ainee4uma"
+transport.connect(None,username,password)
 
-sftp = client.open_sftp()
-sftp.put('text.txt', 'uploaded.txt')
-sftp.close()
+sftp = paramiko.SFTPClient.from_transport(transport)
+#https://stackoverflow.com/questions/3635131/paramikos-sshclient-with-sftp
+#Download
+filepath = "/etc/passwd"
+localpath = "/"
+sftp.get(filepath,localpath)
+
+
+
+if sftp:
+    sftp.close()
+
+if transport:
+    transport.close()
