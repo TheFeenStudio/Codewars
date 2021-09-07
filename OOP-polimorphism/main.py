@@ -1,36 +1,38 @@
 import paramiko
 from paramiko import SFTPClient
-from pathlib import PurePath
+from operator import attrgetter
+from pathlib import Path
+
 
 class NewSFTP(SFTPClient):
-    def put(self, localpath, remotepath, callback=None, confirm=True):
-        super().put(self, PurePath, remotepath, callback=None, confirm=True)
+    def listdir_attr(self, path=".", flag=True, ):  # модифицировать метод listdir
+        lst = super().listdir_attr(path)
+        if flag:
+            print('sorted list')
+            return sorted(lst, key=attrgetter('st_mtime'))
+        else:
+            return lst
+
+
+    def newest(self, path="."):  # метод возвращающий имя самого свежего файла (по дате создания)
+        lst = self.listdir_attr(path)
+        print(lst[-1].filename)
+
 
     def get(self, remotepath, localpath, callback=None):
-        super().get(self, remotepath, PurePath, callback=None)
+        get = super().get(remotepath, localpath, callback=None)
+        print(get)
 
-    def remove(self, path):
-        super().remove(self, PurePath)
 
+# INFO
 host = "134.0.115.28"
-port = 22
-transport = paramiko.Transport((host,port))
-
 username = "root"
 password = "ap4Ainee4uma"
-transport.connect(None,username,password)
 
-sftp = paramiko.SFTPClient.from_transport(transport)
-#https://stackoverflow.com/questions/3635131/paramikos-sshclient-with-sftp
-#Download
-filepath = "/etc/passwd"
-localpath = "/"
-sftp.get(filepath,localpath)
-
-
-
-if sftp:
-    sftp.close()
-
-if transport:
-    transport.close()
+# Connect
+client = paramiko.SSHClient()
+client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+client.connect(hostname=host, username=username, password=password, look_for_keys=False, allow_agent=False)
+sftp = SFTPClient.from_transport(client.get_transport())
+# list = sftp.listdir_attr(flag=True)
+newest = sftp.get('/Users/maxim/desktop',)
