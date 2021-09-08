@@ -3,6 +3,8 @@ from paramiko import SFTPClient
 from operator import attrgetter
 from pathlib import Path
 
+from paramiko.py3compat import b
+
 
 class NewSFTP(SFTPClient):
     def listdir_attr(self, path=".", flag=True, ):  # модифицировать метод listdir
@@ -16,11 +18,13 @@ class NewSFTP(SFTPClient):
 
     def newest(self, path="."):  # метод возвращающий имя самого свежего файла (по дате создания)
         lst = self.listdir_attr(path)
-        print(lst[-1].filename)
+        return lst[-1].filename
 
-    def get(self, remotepath, localpath, callback=None):
-        path = Path(localpath)
-        get = super().get(remotepath, path, callback=None)
+    def _adjust_cwd(self, path):
+        new_path = Path(path)
+        super()._adjust_cwd(b(new_path))
+
+
 
 
 # INFO
@@ -35,4 +39,4 @@ client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 client.connect(hostname=host, username=username, password=password, look_for_keys=False, allow_agent=False)
 sftp = NewSFTP.from_transport(client.get_transport())
 
-newest = sftp.get('test.txt', '5555.txt')
+newest = sftp._adjust_cwd('test.txt')
