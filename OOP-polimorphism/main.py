@@ -14,10 +14,8 @@ class NewSFTP(SFTPClient):
     def newest(self, path="."):  # метод возвращающий имя самого свежего файла (по дате создания)
         # можно же было просто свой же метод вызвать с флагом
         # return self.listdir_attr(path, True)[-1].filename  # реализацию незачем дублировать
-        lst = super().listdir_attr(path)
-        lst = sorted(lst, key=attrgetter('st_mtime'))
+        lst = self.listdir_attr(path, sort=True)
         return lst[-1].filename
 
     def _adjust_cwd(self, path):
-        p = Path(path) # вот зачем это здесь?) я честно не пойму для чего нужно
-        return super()._adjust_cwd(str(p))  # возможность передавать объект Path из pathlib в качестве пути в методах get, put, remove
+        return super()._adjust_cwd(str(path))  # возможность передавать объект Path из pathlib в качестве пути в методах get, put, remove
