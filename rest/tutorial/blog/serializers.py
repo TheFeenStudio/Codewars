@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from .models import Blogs
-from rest_framework.views import APIView
+from blog.models import Blogs
 
 # class BlogSerializator(serializers.Serializer):
 #     title = serializers.CharField()
@@ -8,7 +7,11 @@ from rest_framework.views import APIView
 #     image = serializers.ImageField()
 #     date = serializers.DateField()
 
+
+
 class BlogSerializator(serializers.ModelSerializer):
     class Meta:
         model = Blogs
         fields = '__all__'
+
+
