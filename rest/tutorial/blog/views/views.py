@@ -1,12 +1,15 @@
-from django.shortcuts import render
-from rest_framework import viewsets, permissions
-from blog.models import Blogs
-from blog.serializers import BlogSerializator
+from django.views.generic import CreateView
+from ..models.Mail import MailBox
+from ..tasks import send_spam_email
 
 
-class Blog(viewsets.ModelViewSet):
-    queryset = Blogs.objects.all()
-    permission_classes = [
-        permissions.AllowAny
-    ]
-    serializer_class = BlogSerializator
+class ContactView(CreateView):
+    model = MailBox
+    success_url = '/'
+    template_name = 'index.html'
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.save()
+        send_spam_email.delay(form.instance.email)
+        return super().form_valid(form)

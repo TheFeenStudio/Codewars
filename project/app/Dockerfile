@@ -4,6 +4,9 @@ FROM python:3.8.6-alpine
 # рабочая директория внутри проекта
 WORKDIR /usr/src/app
 
+RUN apk update \
+    && apk add postgresql-dev gcc python3-dev musl-dev
+
 # переменные окружения для python
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

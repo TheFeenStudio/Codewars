@@ -4,6 +4,10 @@
     <title>Blog</title>
 </head>
 <body>
-
+<form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
 </body>
 </html>
