@@ -25,8 +25,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'celery',
+    'django.contrib.sites',
+    'app'
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -94,7 +97,6 @@ EMAIL_HOST_USER = 'mbannakov13@gmail.com'
 EMAIL_HOST_PASSWORD = 'pisikakin1'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
 
 REDIS_HOST = '0.0.0.0'
 REDIS_PORT = '6379'

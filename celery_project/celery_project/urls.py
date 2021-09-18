@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from celery.views import ContactView
+from app.views import ContactView
 
 
 urlpatterns = [

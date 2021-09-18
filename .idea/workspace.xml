@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e3c5306-826b-4136-ba32-0ffb15363663" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/celery_project/celery/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Codewars.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Codewars.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest/tutorial/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/rest/tutorial/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_project/celery_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/celery_project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_project/celery_project/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/celery_project/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
