@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e3c5306-826b-4136-ba32-0ffb15363663" name="Changes" comment="" />
+    <list default="true" id="2e3c5306-826b-4136-ba32-0ffb15363663" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/celery_project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest/tutorial/blog/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest/tutorial/blog/tasks.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +35,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -48,8 +53,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1631017598431</updated>
+      <workItem from="1632233165013" duration="300000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
