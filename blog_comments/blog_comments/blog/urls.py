@@ -5,7 +5,7 @@ from models import Blog
 
 
 router = routers.DefaultRouter()
-router.register('', Blog, 'blog')
+router.register('blog/', Blog, 'blog')
 urlpatterns = router.urls
 
 urlpatterns = {
