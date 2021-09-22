@@ -23,3 +23,13 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['created']
+
+
+class Reply_comment(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    body = models.TextField(blank=False)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    comment_id = models.ForeignKey('Comment', related_name='replies', on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['created']
