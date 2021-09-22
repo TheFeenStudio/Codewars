@@ -1,8 +1,5 @@
 from rest_framework import serializers
-from blog.models import Blog, Users, Comment
-
-
-
+from blog.models import Blog, Users, Comment, Reply_comment
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -14,12 +11,21 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+
+
+
+class Reply_commentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reply_comment
+        fields = '__all__'
+
+
 class CommentSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
+    reply = Reply_commentsSerializer(many=True)
 
     class Meta:
         model = Comment
-        fields = ['id', 'body', 'owner', 'blog']
+        fields = '__all__'
 
 
 class BlogSerializator(serializers.ModelSerializer):

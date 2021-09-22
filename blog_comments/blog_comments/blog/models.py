@@ -29,7 +29,8 @@ class Reply_comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     body = models.TextField(blank=False)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    comment_id = models.ForeignKey('Comment', related_name='replies', on_delete=models.CASCADE)
+    comment_id = models.ForeignKey('Comment', related_name='reply', on_delete=models.CASCADE, default="")
+
 
     class Meta:
         ordering = ['created']
