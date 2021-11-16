@@ -1,11 +1,21 @@
 def decorator(func):
-    def wrapper():
-        print('hello my dear world')
-        type(func())
-    return wrapper()
+    import time
+
+    def wrapper(list):
+        t = time.time()
+        a = func(list)
+        print(f'[*] Время выполнения кода - {t}')
+        print(f'Результат - {a}')
+
+    return wrapper
 
 
 @decorator
-def hello():
-    print('hello world')
-    
+def sum(list):
+    count = 0
+    for i in list:
+        count += i
+    return count
+
+
+sum([1, 2, 3, 4, 5, 6, 7])
